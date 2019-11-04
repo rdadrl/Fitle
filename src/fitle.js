@@ -1,3 +1,20 @@
+/**
+ *			   __ _ _   _      
+ *			  / _(_) | | |     
+ *			 | |_ _| |_| | ___ 
+ *			 |  _| | __| |/ _ \
+ *			 | | | | |_| |  __/
+ *			 |_| |_|\__|_|\___|
+ *
+ * Bringing functionalities to webpage titles.
+ *
+ * @link   https://github.com/rdadrl/Fitle
+ * @file   fitle.js
+ * @author Arda Ntourali.
+ * @github rdadrl
+ * @since  1.0.0
+ */
+ 
 const Fitle = {
 	intervalInstance: null,
 	intervalDuration: 300,
@@ -7,16 +24,16 @@ const Fitle = {
 
 	/* - - - Title Text Effects - - - */
 	currentEffect: null,
-	shiftTitle: function() {
-		var a = Fitle.lastTitle.slice(1, Fitle.lastTitle.length);
-		var b = Fitle.lastTitle.slice(0, 1);
+	shiftTitle: function(defT, lastT) {
+		var a = lastT.slice(1,lastT.length);
+		var b = lastT.slice(0, 1);
 		return a + b;
 	},
 
 	/* - - - Fitle Actions and Events - - - */
 	fitleAction: function() {
 		Fitle.onAction();
-		Fitle.lastTitle = Fitle.currentEffect();
+		Fitle.lastTitle = Fitle.currentEffect(Fitle.originalTitle, Fitle.lastTitle);
 
 		document.title = Fitle.lastTitle;
 	},
