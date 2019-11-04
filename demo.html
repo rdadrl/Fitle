@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Fitle makes long titles readable!</title>
+	</head>
+	<body>
+		<h1>Fitle demo!</h1>
+
+		<script src="fitle.js"></script>
+		<script>
+			function shiftTitleLeft() {
+				var a = Fitle.lastTitle.slice(Fitle.lastTitle.length - 1, Fitle.lastTitle.length);
+				var b = Fitle.lastTitle.slice(0, Fitle.lastTitle.length - 1);
+
+				return a + b;
+			}
+
+			Fitle.initialize(document.title, 250);
+			Fitle.loadEffect(shiftTitleLeft);
+			Fitle.onAction = function() {
+				console.log(Fitle.lastTitle);
+			}
+		</script>
+	</body>
+</html>
